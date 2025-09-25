@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Organization Directory — Template</title>
+  <!-- เชื่อมไฟล์ CSS ภายนอก -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="title">
+        <img src="https://tr.rbxcdn.com/180DAY-c8c09818cd5e35009bba1b652f81667e/150/150/Image/Webp/noFilter" alt title>
+        <div class="logo-blob">Working in Royal Thai army</div>
+        <div>
+          <h1>หน่วยงาน / องค์กร</h1>
+          <p class="lead">รายการหน่วยงานตัวอย่าง — ค้นหา เลือกดูรายละเอียด หรือดาวน์โหลดข้อมูลติดต่อ</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="topbar">
+      <div class="search-row">
+        <input id="q" type="text" placeholder="ค้นหา (ชื่อหน่วยงาน, คำสำคัญ)" oninput="render()">
+        <select id="region" onchange="render()">
+          <option value="all">ทุกเขต / ทุกหน่วย</option>
+
+        </select>
+        <button onclick="resetFilters()">ล้าง</button>
+      </div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h3>ประเภทหน่วยงาน</h3>
+        <ul class="catlist" id="cats">
+          <!-- ปุ่มจะถูกสร้างด้วย JS -->
+        </ul>
+
+        <hr style="margin:12px 0;border:none;border-top:1px solid #eef3fb">
+        <h3>จัดเรียง</h3>
+        <select id="sort" onchange="render()">
+          <option value="name">ชื่อ (A → Z)</option>
+          <option value="region">ภูมิภาค</option>
+        </select>
+      </aside>
+
+      <main class="main">
+        <div class="">หน้าแรก / หน่วยงาน</div>
+        
+
+        <section id="listWrap">
+          <div class="grid" id="grid">
+            <!-- การ์ดหน่วยงานจะถูกสร้างด้วย JS -->
+          </div>
+          <div id="empty" class="empty" style="display:none">ไม่พบรายการที่ค้นหา</div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer>
+    
+  </footer>
+  
+
+  <!-- เชื่อมไฟล์ JS ภายนอก -->
+  <script src="script.js"></script>
+  <!-- กล่องรายละเอียด -->
+<div id="detailModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="detailBody"></div>
+  </div>
+</div>
+
+</body>
+
+</html>
