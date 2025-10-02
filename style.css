@@ -5,7 +5,13 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:#0f172a}
-header{background:linear-gradient(90deg,#062b8a 0%, #0b67ff 100%);color:white;padding:28px 24px}
+header {
+  background-image: url("https://cdn.gldcdn.com/ContentMediaGenericFiles/de3f6ada4e31f7a1bb708c5d5d9197f9-Full.webp?w=1057&h=561&Expires=4661830851&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZ2xkY2RuLmNvbS9Db250ZW50TWVkaWFHZW5lcmljRmlsZXMvZGUzZjZhZGE0ZTMxZjdhMWJiNzA4YzVkNWQ5MTk3ZjktRnVsbC53ZWJwKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6NDY2MTgzMDg1MX19fV19&Signature=Y45%7EZ%7EhOTOWoj56H6xHyBZR6qeq%7ENvUJTFty%7EemqCMkotbCSehMm7GcWCtO4gUk6bbD44sLTKuIoGA-wHUKqD9CyCBJMD0EamvZQts4x7CIRQaYsvkb4tSgTr3kcqh3K48rlJ0e5nhmbBjjaDdNEZoD6N9wnKcEbmXPsgpyZEASNY9K3TkAUNVmv4pwmfX2Lf8U7obxUMXAumfWgBMaqmotfEfg4bV0DSYMjlOdJjVlpI7Sn8141qxvtAVpgM-jdaF6Itcrt31hX1nLBklAQGRiTTuRVfnf1qMkt2tdi0-lPQUJ-jbHXG1DFeMJ-hj%7EWFI%7EGumVM1uFzsJuw1WsnBg__&Key-Pair-Id=K1FFKFZRWAZSB");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .container{max-width:1100px;margin:0 auto;padding:20px}
 .title{display:flex;align-items:center;gap:16px}
 .logo-blob{width:300px;height:100px;background:linear-gradient(135deg,#fff 0,#004200 100%);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#000000;font-weight:700}
@@ -28,6 +34,7 @@ p.lead{margin:6px 0 0;color:rgba(255,255,255,0.9)}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
+.card1{background:var(--card);padding:10px;border-radius:12px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center; color: #000; margin: 0px;}
 .card .logo{width:56px;height:56px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
 .card h4{margin:0;font-size:15px}
 .card p{margin:6px 0 0;font-size:13px;color:var(--muted)}
@@ -87,4 +94,22 @@ footer{max-width:1100px;margin:28px auto;color:var(--muted);font-size:13px}
 @keyframes fadeIn {
   from {opacity:0; transform: translateY(-20px);}
   to {opacity:1; transform: translateY(0);}
+}
+.hidden-button {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  display: inline-block;
+  padding: 8px 12px;
+  margin-top: 10px;
+  background: #0b61a4;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hidden-button.show {
+  opacity: 1;
+  pointer-events: auto;
 }
