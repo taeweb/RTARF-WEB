@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ศูนย์ปฏิบัติการซอฟแวร์ — RTARF TAS</title>
+  <style>
+    :root{--accent:#0b61a4;--muted:#6b7280;--card:#ffffff;--bg:#f4f6f8}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#0f1724}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    header{background:linear-gradient(90deg, rgba(107, 0, 0, 0.95), rgba(6,46,97,0.95));color:#fff;padding:22px 0;border-bottom:4px solid rgba(255,255,255,0.06)}
+    .brand{display:flex;gap:16px;align-items:center}
+    .brand img{width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;padding:6px}
+    .brand h1{font-size:20px;margin:0}
+    nav{margin-top:8px}
+    nav ul{display:flex;gap:12px;list-style:none;padding:0;margin:0}
+    nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:6px 10px;border-radius:6px;font-weight:600}
+    nav a:hover{background:rgba(255,255,255,0.06)}
+
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:20px;margin-top:18px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(11,61,100,0.06)}
+    .hero-left h2{margin:0 0 8px 0}
+    .lead{color:var(--muted);margin-bottom:12px}
+
+    .commander{display:flex;gap:12px;align-items:center}
+    .commander img{width:110px;height:110px;object-fit:cover;border-radius:10px;border:4px solid #fff;box-shadow:0 6px 12px rgba(6,46,97,0.08)}
+    .commander .meta{line-height:1}
+    .meta h3{margin:0}
+    .meta p{margin:6px 0;color:var(--muted)}
+
+    .list-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+    .person{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid #eef3f8}
+    .person img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+    .person .info{font-size:14px}
+    .person .info b{display:block}
+    .contact{font-size:14px;color:var(--muted);margin-top:8px}
+
+    aside .info-block{margin-bottom:12px}
+
+    footer{margin-top:26px;padding:18px 0;color:var(--muted);text-align:center}
+
+    .hidden-button {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  display: inline-block;
+  padding: 8px 12px;
+  margin-top: 10px;
+  background: #0b61a4;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hidden-button.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+    /* Responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr} .list-grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:520px){.list-grid{grid-template-columns:1fr} nav ul{overflow:auto} .brand img{width:48px;height:48px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <img src="https://tr.rbxcdn.com/180DAY-e43ac80c1004672fbad26254fe1164f9/150/150/Image/Webp/noFilter" alt="ตราสัญลักษณ์">
+        <div>
+          <h1>ศูนย์ปฏิบัติการซอฟแวร์ — Software Operation</h1>
+          <div style="margin-top:6px;color:rgba(255,255,255,0.85)">หน้าแสดงข้อมูลผู้อำนวยการ ด้านซอฟแวร์</div>
+        </div>
+      </div>
+      <nav style="margin-top:12px">
+        <ul>
+          <li><a href="#top">หน้าแรก</a></li>
+          <li><a href="#commander">ผู้พัฒนาระบบ</a></li>
+          <li><a href="#units">หน่วยงาน</a></li>
+          <li><a href="#contact">ติดต่อ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card hero-left">
+        <h2 id="commander">ผู้พัฒนาระบบ</h2>
+        <p class="lead">ข้อมูลผู้พัฒนาระบบ ช่องทางติดต่อ</p>
+
+        <div class="commander" style="margin-top:12px">
+          <img src="https://tr.rbxcdn.com/30DAY-Avatar-28908AE15D5529AD738A8283D782D6F7-Png/352/352/Avatar/Webp/noFilter" alt="รูปผู้พัฒนาระบบ">
+          <div class="meta">
+            <h3>SWAnstav1</h3>
+            <p class="muted"><strong>ผู้พัฒนาระบบบอทดิสคอร์ด ด้านอำนวยการ</strong></p>
+            <p class="contact"><strong>แอด discord id:</strong>tavesspecialforce_  &nbsp;  &nbsp;</p>
+            <p style="margin-top:8px;color:var(--muted)">ได้สร้างบอท 
+                tevezinspector  #4988 ประจำการดิสต่างๆ </p>
+          </div>
+        </div>
+
+        <h4 style="margin-top:16px">ข่าวล่าสุด</h4>
+        <div style="margin-top:8px">
+          <!-- Placeholder for dynamic news items -->
+          <div style="padding:10px;border-radius:8px;border:1px dashed #e6eef8;color:var(--muted)">ไม่มีข่าวใหม่ล่าสุด</div>
+        </div>
+ <h4 style="margin-top:16px">ความสามารถของบอท tevezinspector
+#4988</h4>
+        <div class="list-grid">
+          <div class="person">
+            <div class="info"><b>1.ระบบควบคุม-ดูแลแอดมิน<p style="margin:4px 0;color:var(--muted);font-size:13px; width: 100px;margin-right: 200px;"><h4>หลังจากที่รันบอทแล้ว บอทจะการตรวจสอบแอดมินเพื่อหาว่าแอดมินคนใดเตะ แบน หมดผู้อื่น โดนมิชอบและจะทำการหมดเวลาแอดมินคนนั้น</h4></p></div></div>
+            <div class="info"><b>2.ระบบกรอกคดี<p style="margin:4px 0;color:var(--muted);font-size:13px; width: 100px;margin-right: 200px;"><h4>เมื่อใช้คำสั่ง !กรอกคดี(ใช้ได้แค่คนในศาล) บอทจะถามถึงข้อมูลคดีและหลังจากกรอกคดีข้อมูลเสร็จ บอทจะทำการเรียบเรียงและส่งไปในห้องบันทึกคดีต่างๆ</h4></p></div></div>
+            <div class="info"><b>3.รียศในเซิฟเวอร์<p style="margin:4px 0;color:var(--muted);font-size:13px; width: 100px;margin-right: 200px;"><h4>หากมีทำสั่ง !update_rank (ใช้ได้แค่เจ้าของหรือแอดมิน) บอทจะทำการรียศทั้งหมดและคืนยศตามที่กำหนดเช่น Verify และหากใส่ชื่อ special_rank(เฉพาะคน) บอทจะอัพเดตยศสำหรับที่ถูกกำหนดว่าได้ยศเช่น คนในกองบินจะได้ verify+กองบิน</h4></p></div></div>
+            <div class="card"><b>4.ระบบสร้างเซิฟเวอร์<p style="margin:4px 0;color:var(--muted);font-size:13px; width: 100px;margin-right: 200px;"><h4>บอทจะทำการสร้างดิสคอร์ด ตามที่กำหนด มันจะเรียบเรียงช่องแลพหมวดหมู่ให้</h4></p></div></div>
+
+          </div>
+        
+
+      </div>
+
+      <aside style="width:100%">
+        <div class="card">
+          <div class="info-block">
+    <h4 id="demo">เชิญบอท #4988</h4>
+
+        <!-- ปุ่มลิงก์ ซ่อนก่อน -->
+        <a id="inviteBtn" 
+        href="https://discord.com/oauth2/authorize?client_id=1393440503776678009&permissions=397284686848&integration_type=0&scope=bot" 
+        target="_blank" 
+        class="hidden-button">
+        ลิ้งค์ Link
+        </a>
+
+        <!-- ปุ่มแสดงลิงก์ -->
+        <button type="button" onclick="showInvite()">Press here กดตรงนี้</button>
+
+<script>
+        function showInvite() {
+            const inviteBtn = document.getElementById("inviteBtn");
+            inviteBtn.classList.add("show");
+
+            // Optional: ทำให้ตัว h4 เปลี่ยนด้วย
+            const header = document.getElementById("demo");
+            header.style.fontSize = "20px"; 
+            header.style.color = "black";
+            header.style.backgroundColor = "gold";
+        }
+</script>
+
+
+          </div>
+        
+          </div>
+        </div>
+      </aside>
+    </section>
+
+
+  </main>
+</body>
+</html>
