@@ -23,6 +23,123 @@
   </div>
 </header>
 
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ปิดปรับปรุง</title>
+  <style>
+    /* ตัวอย่างหน้าเว็บด้านหลัง */
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Roboto,'Helvetica Neue',Arial}
+    .site {
+      min-height:100%;
+      background: linear-gradient(135deg,#0f172a 0%,#001f3f 100%);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px;
+      box-sizing:border-box;
+    }
+    .site .content{max-width:900px;text-align:center;opacity:0.9}
+    h1{font-size:clamp(20px,3vw,28px);margin:0 0 12px}
+    p{margin:0;font-size:clamp(14px,1.8vw,18px);opacity:0.85}
+
+    /* overlay ปิดปรับปรุง */
+    .maintenance-overlay{
+      position:fixed;
+      inset:0;
+      backdrop-filter: blur(6px) saturate(120%);
+      background: rgba(2,6,23,0.6); /* ทึบขึ้นเล็กน้อย */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:24px;
+      box-sizing:border-box;
+    }
+
+    .notice {
+      background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      border-radius:14px;
+      padding:28px 32px;
+      max-width:880px;
+      width:100%;
+      color:#fff;
+      text-align:center;
+    }
+
+    .notice .big {
+      font-weight:700;
+      font-size:clamp(36px,7vw,88px);
+      line-height:0.95;
+      margin:0 0 8px;
+      letter-spacing:-1px;
+    }
+
+    .notice .sub {
+      font-size:clamp(14px,2.2vw,20px);
+      opacity:0.9;
+      margin-bottom:18px;
+    }
+
+    .notice .meta{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+    .btn{
+      appearance:none;border:0;padding:10px 18px;border-radius:8px;font-weight:600;cursor:pointer;
+      background:linear-gradient(90deg,#111827,#0b63ff);color:#fff
+    }
+    .hint{font-size:13px;opacity:0.7}
+
+    /* small-screen tweaks */
+    @media (max-width:520px){
+      .notice{padding:20px;border-radius:10px}
+      .notice .big{font-size:34px}
+    }
+  </style>
+</head>
+
+  <div class="site">
+    <div class="content">
+      <h1>ตัวอย่างเนื้อหาของเว็บไซต์</h1>
+      <p>เนื้อหาและองค์ประกอบด้านหลังจะยังคงมีอยู่ แต่ผู้ใช้งานจะเห็นแบนเนอร์แจ้งสถานะปิดปรับปรุงชัดเจน</p>
+    </div>
+  </div>
+
+  <!-- Maintenance overlay -->
+  <div class="maintenance-overlay" role="dialog" aria-labelledby="maint-title" aria-modal="true">
+    <div class="notice">
+      <div id="maint-title" class="big">ปิดปรับปรุง</div>
+      <div class="sub">เว็บไซต์กำลังอยู่ในช่วงปรับปรุง ระบบจะกลับมาใช้งานได้เร็วๆ นี้</div>
+      <div class="meta">
+        <button class="btn" id="refreshBtn" title="ลองโหลดหน้าซ้ำ">ลองโหลดใหม่</button>
+        
+      </div>
+      <div style="height:12px"></div>
+      <div class="hint">ผลักให้เป็น full-screen overlay — เหมาะสำหรับหน้า maintenance / coming soon</div>
+    </div>
+  </div>
+
+  <script>
+    // ปุ่มลองโหลดใหม่
+    document.getElementById('refreshBtn').addEventListener('click',function(){
+      location.reload();
+    });
+
+    // ปุ่มสำหรับนักพัฒนา (ไม่แสดงใน production)
+    document.getElementById('closeDev').addEventListener('click',function(){
+      document.querySelector('.maintenance-overlay').style.display = 'none';
+    });
+
+    // ถ้าต้องการให้ overlay ปรากฏตามเงื่อนไขจากเซิร์ฟเวอร์ ให้ fetch ค่าจาก API แล้วแสดง/ซ่อนได้
+    // ตัวอย่าง (คอมเมนต์):
+    // fetch('/api/site-status').then(r=>r.json()).then(status=>{
+    //   if(!status.maintenance) document.querySelector('.maintenance-overlay').style.display='none';
+    // });
+  </script>
+
+
       <div class="container">
         <div class="topbar">
           <div class="search-row">
