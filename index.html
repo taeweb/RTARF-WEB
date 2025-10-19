@@ -1,202 +1,124 @@
-    <!doctype html>
-    <html lang="th">
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Organization Directory — Template</title>
-      <!-- เชื่อมไฟล์ CSS ภายนอก -->
-      <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Organization Directory — Template</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-      <header>
+<header>
   <div class="container">
     <div class="title"> 
       <img class="logo" src="https://tr.rbxcdn.com/180DAY-c8c09818cd5e35009bba1b652f81667e/150/150/Image/Webp/noFilter" alt="logo">
       <div>
-        <div class="logo-blob">Working in Royal Thai army</div>
-        <div class="card1"><h1>หน่วยงาน / องค์กร</h1>
-        </style>
-        <p class="card1">รายการหน่วยงานตัวอย่าง — ค้นหา เลือกดูรายละเอียด หรือดาวน์โหลดข้อมูลติดต่อ</p>
+        <div class="logo-blob">Working in Royal Thai Army</div>
+        <div class="card1">
+          <h1>หน่วยงาน / องค์กร</h1>
+          <p class="lead">รายการหน่วยงานตัวอย่าง — ค้นหา เลือกดูรายละเอียด หรือดาวน์โหลดข้อมูลติดต่อ</p>
+        </div>
       </div>
     </div>
   </div>
 </header>
+<!-- แท็บข่าวสาร -->
+<section class="announcement-tab" style="margin:20px auto; max-width:500px;">
+  <h2>ประกาศข่าวสาร</h2>
+  <div class="announcement-container" id="announcementContainer">
+    <!-- ข่าวสารจะถูกเพิ่มด้วย JS -->
+  </div>
+  <div class="announcement-controls">
+    <button id="prevBtn">&#8593; ก่อนหน้า</button>
+    <button id="nextBtn">ถัดไป &#8595;</button>
+  </div>
+</section>
+<script>
+const announcements = [
+  "📢 ประกาศ ระบบเว็บทำงานในรั้วทหารไทย",
+  "กำลังจะ",
+  "พัฒนา",
+  "ต่อไป"
+];
 
-<html lang="th">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ปิดปรับปรุง</title>
-  <style>
-    /* ตัวอย่างหน้าเว็บด้านหลัง */
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Roboto,'Helvetica Neue',Arial}
-    .site {
-      min-height:100%;
-      background: linear-gradient(135deg,#0f172a 0%,#001f3f 100%);
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:48px;
-      box-sizing:border-box;
-    }
-    .site .content{max-width:900px;text-align:center;opacity:0.9}
-    h1{font-size:clamp(20px,3vw,28px);margin:0 0 12px}
-    p{margin:0;font-size:clamp(14px,1.8vw,18px);opacity:0.85}
+let currentIndex = 0;
+const container = document.getElementById("announcementContainer");
 
-    /* overlay ปิดปรับปรุง */
-    .maintenance-overlay{
-      position:fixed;
-      inset:0;
-      backdrop-filter: blur(6px) saturate(120%);
-      background: rgba(2,6,23,0.6); /* ทึบขึ้นเล็กน้อย */
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:24px;
-      box-sizing:border-box;
-    }
+function showAnnouncement(index) {
+  container.style.opacity = 0;
+  setTimeout(()=>{
+    container.innerHTML = `<div class="announcement">${announcements[index]}</div>`;
+    container.style.opacity = 1;
+  }, 200);
+}
 
-    .notice {
-      background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.06);
-      box-shadow:0 10px 30px rgba(2,6,23,0.6);
-      border-radius:14px;
-      padding:28px 32px;
-      max-width:880px;
-      width:100%;
-      color:#fff;
-      text-align:center;
-    }
+// เริ่มต้น
+showAnnouncement(currentIndex);
 
-    .notice .big {
-      font-weight:700;
-      font-size:clamp(36px,7vw,88px);
-      line-height:0.95;
-      margin:0 0 8px;
-      letter-spacing:-1px;
-    }
+document.getElementById("prevBtn").addEventListener("click", ()=>{
+  currentIndex = (currentIndex - 1 + announcements.length) % announcements.length;
+  showAnnouncement(currentIndex);
+});
 
-    .notice .sub {
-      font-size:clamp(14px,2.2vw,20px);
-      opacity:0.9;
-      margin-bottom:18px;
-    }
+document.getElementById("nextBtn").addEventListener("click", ()=>{
+  currentIndex = (currentIndex + 1) % announcements.length;
+  showAnnouncement(currentIndex);
+});
 
-    .notice .meta{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
-    .btn{
-      appearance:none;border:0;padding:10px 18px;border-radius:8px;font-weight:600;cursor:pointer;
-      background:linear-gradient(90deg,#111827,#0b63ff);color:#fff
-    }
-    .hint{font-size:13px;opacity:0.7}
+// เลื่อนอัตโนมัติทุก 5 วินาที
+setInterval(()=>{
+  currentIndex = (currentIndex + 1) % announcements.length;
+  showAnnouncement(currentIndex);
+}, 5000);
+</script>
 
-    /* small-screen tweaks */
-    @media (max-width:520px){
-      .notice{padding:20px;border-radius:10px}
-      .notice .big{font-size:34px}
-    }
-  </style>
-</head>
 
-  <div class="site">
-    <div class="content">
-      <h1>ตัวอย่างเนื้อหาของเว็บไซต์</h1>
-      <p>เนื้อหาและองค์ประกอบด้านหลังจะยังคงมีอยู่ แต่ผู้ใช้งานจะเห็นแบนเนอร์แจ้งสถานะปิดปรับปรุงชัดเจน</p>
+
+<div class="container">
+  <div class="topbar">
+    <div class="search-row">
+      <input id="q" type="text" placeholder="ค้นหา (ชื่อหน่วยงาน, คำสำคัญ)" oninput="render()">
+      <select id="region" onchange="render()">
+        <option value="all">ทุกเขต / ทุกหน่วย</option>
+      </select>
+      <button onclick="resetFilters()">ล้าง</button>
     </div>
   </div>
 
-  <!-- Maintenance overlay -->
-  <div class="maintenance-overlay" role="dialog" aria-labelledby="maint-title" aria-modal="true">
-    <div class="notice">
-      <div id="maint-title" class="big">ปิดปรับปรุง</div>
-      <div class="sub">เว็บไซต์กำลังอยู่ในช่วงปรับปรุง ระบบจะกลับมาใช้งานได้เร็วๆ นี้</div>
-      <div class="meta">
-        <button class="btn" id="refreshBtn" title="ลองโหลดหน้าซ้ำ">ลองโหลดใหม่</button>
-        
-      </div>
-      <div style="height:12px"></div>
-      <div class="hint">ผลักให้เป็น full-screen overlay — เหมาะสำหรับหน้า maintenance / coming soon</div>
-    </div>
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>ประเภทหน่วยงาน</h3>
+      <ul class="catlist" id="cats"></ul>
+
+      <hr>
+      <h3>จัดเรียง</h3>
+      <select id="sort" onchange="render()">
+        <option value="name">ชื่อ (A → Z)</option>
+        <option value="region">ภูมิภาค</option>
+      </select>
+    </aside>
+
+    <main class="main">
+      <div class="breadcrumb">หน้าแรก / หน่วยงาน</div>
+      <section id="listWrap">
+        <div class="grid" id="grid"></div>
+        <div id="empty" class="empty" style="display:none">ไม่พบรายการที่ค้นหา</div>
+      </section>
+    </main>
   </div>
+</div>
 
-  <script>
-    // ปุ่มลองโหลดใหม่
-    document.getElementById('refreshBtn').addEventListener('click',function(){
-      location.reload();
-    });
+<footer></footer>
 
-    // ปุ่มสำหรับนักพัฒนา (ไม่แสดงใน production)
-    document.getElementById('closeDev').addEventListener('click',function(){
-      document.querySelector('.maintenance-overlay').style.display = 'none';
-    });
+<!-- กล่องรายละเอียด -->
+<div id="detailModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="detailBody"></div>
+  </div>
+</div>
 
-    // ถ้าต้องการให้ overlay ปรากฏตามเงื่อนไขจากเซิร์ฟเวอร์ ให้ fetch ค่าจาก API แล้วแสดง/ซ่อนได้
-    // ตัวอย่าง (คอมเมนต์):
-    // fetch('/api/site-status').then(r=>r.json()).then(status=>{
-    //   if(!status.maintenance) document.querySelector('.maintenance-overlay').style.display='none';
-    // });
-  </script>
-
-
-      <div class="container">
-        <div class="topbar">
-          <div class="search-row">
-            <input id="q" type="text" placeholder="ค้นหา (ชื่อหน่วยงาน, คำสำคัญ)" oninput="render()">
-            <select id="region" onchange="render()">
-              <option value="all">ทุกเขต / ทุกหน่วย</option>
-
-            </select>
-            <button onclick="resetFilters()">ล้าง</button>
-          </div>
-        </div>
-        <div class="layout">
-          <aside class="sidebar">
-            <h3>ประเภทหน่วยงาน</h3>
-            <ul class="catlist" id="cats">
-              <!-- ปุ่มจะถูกสร้างด้วย JS -->
-            </ul>
-
-            <hr style="margin:12px 0;border:none;border-top:1px solid #eef3fb">
-            <h3>จัดเรียง</h3>
-            <select id="sort" onchange="render()">
-              <option value="name">ชื่อ (A → Z)</option>
-              <option value="region">ภูมิภาค</option>
-            </select>
-          </aside>  
-          
-
-          <main class="main">
-            <div class="">หน้าแรก / หน่วยงาน</div>
-            
-            
-
-            <section id="listWrap">
-              <div class="grid" id="grid">
-                <!-- การ์ดหน่วยงานจะถูกสร้างด้วย JS -->
-              </div>
-              <div id="empty" class="empty" style="display:none">ไม่พบรายการที่ค้นหา</div>
-            </section>
-          </main>
-        </div>
-      </div>
-
-      <footer>
-        
-      </footer>
-      
-
-      <!-- เชื่อมไฟล์ JS ภายนอก -->
-      <script src="script.js"></script>
-      <!-- กล่องรายละเอียด -->
-    <div id="detailModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="detailBody"></div>
-      </div>
-    </div>
-
+<script src="script.js"></script>
       <style>
       .cardd {background:var(--card);padding:20px;border-radius:20px;box-shadow:-20px 6px 18px rgba(11,61,100,0.06)}
       .leadd{color:var(--muted);margin-bottom:12px; padding:auto;}
@@ -226,3 +148,5 @@
     </body>
 
     </html>
+</body>
+</html>
