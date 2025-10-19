@@ -14,9 +14,9 @@
       <img class="logo" src="https://tr.rbxcdn.com/180DAY-c8c09818cd5e35009bba1b652f81667e/150/150/Image/Webp/noFilter" alt="logo">
       <div>
         <div class="logo-blob">Working in Royal Thai Army</div>
-        <div class="card1">
+        <div class="card1"> 
           <h1>หน่วยงาน / องค์กร</h1>
-          <p class="lead">รายการหน่วยงานตัวอย่าง — ค้นหา เลือกดูรายละเอียด หรือดาวน์โหลดข้อมูลติดต่อ</p>
+          <p class="lead">รายการหน่วยงานตัวอย่าง — ค้นหา เลือกดูรายละเอียด*เว็บไซท์นี้เป็นของแมพทำงานในรั้วทหารไทย(จำลองเท่านั้น)*</p>
         </div>
       </div>
     </div>
@@ -79,22 +79,20 @@ setInterval(()=>{
     <div class="search-row">
       <input id="q" type="text" placeholder="ค้นหา (ชื่อหน่วยงาน, คำสำคัญ)" oninput="render()">
       <select id="region" onchange="render()">
-        <option value="all">ทุกเขต / ทุกหน่วย</option>
+        <option value="all">ทั้งหมด</option>
       </select>
       <button onclick="resetFilters()">ล้าง</button>
     </div>
   </div>
 
-  <div class="layout">
+  <div class="container">
     <aside class="sidebar">
-      <h3>ประเภทหน่วยงาน</h3>
+     
       <ul class="catlist" id="cats"></ul>
 
       <hr>
-      <h3>จัดเรียง</h3>
+      
       <select id="sort" onchange="render()">
-        <option value="name">ชื่อ (A → Z)</option>
-        <option value="region">ภูมิภาค</option>
       </select>
     </aside>
 
@@ -117,7 +115,7 @@ setInterval(()=>{
     <div id="detailBody"></div>
   </div>
 </div>
-
+  
 <script src="script.js"></script>
       <style>
       .cardd {background:var(--card);padding:20px;border-radius:20px;box-shadow:-20px 6px 18px rgba(11,61,100,0.06)}
@@ -129,11 +127,11 @@ setInterval(()=>{
         <div class="cardd">
           <h3>เหล่าผู้พัฒนา | Developer</h3>
           <p class="leadd">ผู้พัฒนา</p>
-          <table style="width:100%;border-collapse:collapse;margin-top:12px;">
+          <table style="width: 70%;border-collapse:collapse;margin-top:12px;">
             <thead style="text-align:left;color:var(--muted);font-size:13px">
             <tbody>
               <tr style="border-top:1px solid #f1f5f9">
-              <td style="width: 10px;">
+              <td style="width: 1px;">
                 <td><a class="leaddd"  href="https://www.roblox.com/users/1496814691/profile">1pakung</a><div><p>เจ้าของสถานที่</p>Place owner</div></td>
                 <td><a class="leaddd"  href="https://www.roblox.com/users/5273845728/profile">3698x</a><div><p>ผู้ก่อตั้ง</p>Founder</div></td>
                 <td><a class="stylesheet"  href="index2.html">Press-กด</a><div><p>เจ้าของเว็บ</p>Web Owner</div></td>
@@ -142,11 +140,15 @@ setInterval(()=>{
               <tr style="border-top:1px solid #f1f5f9">
               </tr>
             </tbody>
-          </table>
+         
         </div>
       </section>
     </body>
-
+ 
     </html>
+  </table> 
+          <footer class="lead">
+    © <span id="lead">2025</span> เว็บไซต์ข้อมูล | ทำงานในรั้วทหารไทย
+  </footer>
 </body>
 </html>
