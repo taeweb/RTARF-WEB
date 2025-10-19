@@ -137,9 +137,35 @@ setInterval(()=>{
 
 <script src="script.js"></script>
       <style>
-      .cardd {background:var(--card);padding: 5px;border-radius: 10px;box-shadow:-20px 6px 18px rgba(11,61,100,0.06)}
-      .leadd{color:var(--muted);margin-bottom:12px; padding:auto;}
-      .leaddd{margin-bottom:12px;}
+      <style>
+  .cardd {
+    background: var(--card);
+    padding: 16px; /* เพิ่ม padding ให้สมดุลขึ้น */
+    border-radius: 10px;
+    box-shadow: -20px 6px 18px rgba(11, 61, 100, 0.06);
+    max-width: 750px;         /* กำหนดความกว้างสูงสุด */
+    margin: 0 auto;           /* จัดให้อยู่ตรงกลาง */
+  }
+
+  .leadd {
+    color: var(--muted);
+    margin-bottom: 12px;
+    text-align: center;       /* จัดข้อความให้อยู่ตรงกลาง */
+  }
+
+  .leaddd {
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .cardd {
+      padding: 12px;
+      box-shadow: -10px 4px 12px rgba(11, 61, 100, 0.05); /* เบาลงสำหรับจอเล็ก */
+    }
+  }
+</style>
+
     
       </style>
     <section id="units" style="margin-top:18px; width: 400px; height: 3000px;margin: auto;">
@@ -171,4 +197,5 @@ setInterval(()=>{
   </footer>
 </body>
 </html>
+
 
