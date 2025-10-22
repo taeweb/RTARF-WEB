@@ -49,16 +49,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const orgs = [
     {
       id: 1,
+      name: 'United Nations(UN.)',
+      short: 'สื่อสัมพันธ์ระหว่างประเทศ',
+      type: 'กรม',
+      region: '-',
+      com:"พันเอก jhgpojh",
+      tel: '<a href="https://www.roblox.com/communities/35669855/RTP-Army-Tr-ining-Education-Command#!/about">ลิ้งค์กลุ่ม</a>'  ,
+      pic: '<a src="https://tr.rbxcdn.com/180DAY-13b27cf534235e7c8355c8a39ed9fb89/150/150/Image/Webp/noFilter"></a>' 
       
     
     },
     {
       id: 2,
-      
+      name: 'กองบัญชาการราชองครักษ์(นถปภ.รอ.)  ',
+      short: 'ลักในการถวายอารักขา ถวายพระเกียรติ และรักษาความปลอดภัยแด่องค์พระมหากษัตริย์ สมเด็จพระราชินี พระรัชทายาท ผู้สำเร็จราชการแทนพระองค์ และพระบรมวงศานุวงศ์',
+      type: 'กรม',
+      region: '-',
+      com:"-",
+      tel: '<a href="https://www.roblox.com/communities/34955189/RTP-Royal-Guard-Headquarters#!/about">ลิ้งค์กลุ่ม</a>' ,
+      pic: '<a src="https://tr.rbxcdn.com/180DAY-f3c47a68d322bfad60fd7531cfc1e1c2/150/150/Image/Webp/noFilter"></a>'  
     },
     {
       id: 3,
-    
+      name: 'กรมแพทย์ทหารบก(พบ.)',
+      short: 'การให้บริการทางการแพทย์แก่กำลังพล ครอบครัว และประชาชน',
+      type: 'กรม',
+      region: '-',
+      com:"พลโท gamegame111_22",
+      tel: '<a href="https://www.roblox.com/communities/35669855/RTP-Army-Tr-ining-Education-Command#!/about">ลิ้งค์กลุ่ม</a>'  ,
+      pic: '<a src="https://tr.rbxcdn.com/180DAY-e0bddc722f61dcdcef19b5dd189e4e3f/150/150/Image/Webp/noFilter"></a>' 
     },
     { 
       id: 4,
@@ -66,8 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
       short: 'การ วางแผน อำนวยการ ประสานงาน กำกับการ และดำเนินการเกี่ยวกับกิจการการศึกษา การฝึกอบรม และการพัฒนาหลักนิยม เพื่อให้กำลังพลมีความรู้ มีคุณธรรม พร้อมปฏิบัติภารกิจของกองทัพบก',
       type: 'กรม',
       region: '-',
-      com:" ",
-      tel: '<a href="https://www.roblox.com/communities/35669855/RTP-Army-Tr-ining-Education-Command#!/about">ลิ้งค์กลุ่ม</a>'  
+      com:"จอมพล armarx20011 ",
+      tel: '<a href="https://www.roblox.com/communities/35669855/RTP-Army-Tr-ining-Education-Command#!/about">ลิ้งค์กลุ่ม</a>'  ,
+      pic: '<a src="https://tr.rbxcdn.com/180DAY-e0bddc722f61dcdcef19b5dd189e4e3f/150/150/Image/Webp/noFilter"></a>' 
       
     },
     {
@@ -76,8 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
       short: 'การรักษาความสงบเรียบร้อย วินัย และการรักษาความปลอดภัยภายในกองทัพ รวมถึงการสืบสวนสอบสวนคดีอาญาในอำนาจศาลทหาร การควบคุมการจราจรในกิจการทหาร และการถวายอารักขาบุคคลสำคัญ',
       type: 'กรม',
       region: '-',
-      com:"พล.อ.armarx20011(จอง) ",
-      tel: '<a href="-">ลิ้งค์กลุ่ม</a>'  
+      com:"จอมพล armarx20011 ",
+      tel: '<a href="-">ลิ้งค์กลุ่ม</a>'  ,
+      pic: '<a src="https://t5.rbxcdn.com/180DAY-c239841c976f825fcf18284efdd1955a"></a>'
       
     },
     {
@@ -87,8 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'กรม',
       region: '-',
       com:"- ",
-      tel: '<a href="-">ลิ้งค์กลุ่ม</a>'  
-      
+      tel: '<a href="-">ลิ้งค์กลุ่ม</a>'  ,
+      pic: '<a src="https://t5.rbxcdn.com/180DAY-c239841c976f825fcf18284efdd1955a"></a>'
     },
     {
       id: 7,
@@ -97,8 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'กรม',
       region: '-',
       com:"-",
-      tel: '<a href="-">ลิ้งค์กลุ่ม</a>'  
-      
+      tel: '<a href="-">ลิ้งค์กลุ่ม</a>'  ,
+      pic: '<a src="https://t5.rbxcdn.com/180DAY-c239841c976f825fcf18284efdd1955a"></a>'
     },
     {
       id: 8,
@@ -106,17 +127,19 @@ document.addEventListener('DOMContentLoaded', () => {
       short: 'วางแผน อำนวยการ ประสานงาน กำกับดูแล และดำเนินการเกี่ยวกับกิจการด้านกฏหมาย ของกองทัพบกให้คำปรึกษาทางกฎหมายของกองทัพบก สืบสวนคดี ตามคำสั่ง ผู้บังคับบัญชาพิจารณาเสนอความเห็นทางกฎหมาย เกี่ยวกับวินัยทหาร การใช้กำลังทหาร และตรวจร่างสัญญาต่าง ๆ ของกองทัพบกตลอดจน',
       type: 'กรม',
       region: '-',
-      com:"พล.อ.armarx20011 (จอง)",
-      tel: '<a href="-">ลิ้งค์กลุ่ม</a>' 
+      com:"จอมพล armarx20011 ",
+      tel: '<a href="-">ลิ้งค์กลุ่ม</a>' ,
+      pic: '<a src="https://t5.rbxcdn.com/180DAY-c239841c976f825fcf18284efdd1955a"></a>'
     },
     {
       id: 9,
-      name: 'กรมทหารราบที่ 11 มหาดเล็กราชวัลลภรักษาพระองค์ (ร.11 ทม.รอ.)  ',
+      name: 'กรมทหารราบที่ 1 กองพันทหารรักษาพระองค์ (ร.1 ทม.รอ.)  ',
       short: 'ลักในการถวายอารักขา ถวายพระเกียรติ และรักษาความปลอดภัยแด่องค์พระมหากษัตริย์ สมเด็จพระราชินี พระรัชทายาท ผู้สำเร็จราชการแทนพระองค์ และพระบรมวงศานุวงศ์',
       type: 'กรม',
       region: '-',
-      com:"-",
-      tel: '<a href="https://www.roblox.com/communities/34955189/RTP-Royal-Guard-Headquarters#!/about">ลิ้งค์กลุ่ม</a>' 
+      com:"พระบาทสมเด็จ north88_88",
+      tel: '<a href="https://www.roblox.com/communities/34955189/RTP-Royal-Guard-Headquarters#!/about">ลิ้งค์กลุ่ม</a>' ,
+      pic: '<a src="https://tr.rbxcdn.com/180DAY-fecb91dd1174384f84f5b414954d4968/150/150/Image/Webp/noFilter"></a>'
     },
     {
       id: 10,
@@ -125,7 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'กรม',
       region: '-',  
       com:"-",
-      tel: '<a href="https://www.roblox.com/communities/35051902/RTP-47th-Ranger-Regiment#!/about">ลิ้งค์กลุ่ม</a>' 
+      tel: '<a href="https://www.roblox.com/communities/35051902/RTP-47th-Ranger-Regiment#!/about">ลิ้งค์กลุ่ม</a>' ,
+      pic: '<a src="https://tr.rbxcdn.com/180DAY-ec3611c3e36e5c99e3c63444935f340a/150/150/Image/Webp/noFilter"></a>'
     },
     {
       id: 11,
@@ -134,16 +158,18 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'กรม',
       region: '-',  
       com:"-",
-      tel: '<a href="">ลิ้งค์กลุ่ม</a>' 
+      tel: '<a href="">ลิ้งค์กลุ่ม</a>' ,
+      pic: '<a src="https://t5.rbxcdn.com/180DAY-c239841c976f825fcf18284efdd1955a"></a>'
     },
     {
       id: 12,
-      name: 'กรมการขนส่งทหารบก (ขสทบ.)',
+      name: 'กรมการขนส่งทหารบก (ขส.ทบ.)',
       short: 'มีหน้าที่วางแผน อำนวยการ ประสานงาน แนะนำ กำกับการ ดำเนินการ วิจัยและพัฒนาเกี่ยวกับ การจัดหา การส่งกำลัง  การบริการสิ่งอุปกรณ์ขนส่ง',
       type: 'กรม',
       region: '-',  
       com:"-",
-      tel: '<a href="">ลิ้งค์กลุ่ม</a>' 
+      tel: '<a href="">ลิ้งค์กลุ่ม</a>' ,
+      pic: '<a src="https://t5.rbxcdn.com/180DAY-c239841c976f825fcf18284efdd1955a"></a>'
     },
     {
       id: 13,
@@ -152,7 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'กรม',
       region: '-',  
       com:"-",
-      tel: '<a href="">ลิ้งค์กลุ่ม</a>' 
+      tel: '<a href="">ลิ้งค์กลุ่ม</a>' ,
+      pic: '<a src="https://t5.rbxcdn.com/180DAY-c239841c976f825fcf18284efdd1955a"></a>'
     },
     {
       id: 14,
@@ -161,16 +188,18 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'กรม',
       region: '-',  
       com:"-",
-      tel: '<a href="">ลิ้งค์กลุ่ม</a>' 
+      tel: '<a href="">ลิ้งค์กลุ่ม</a>' ,
+      pic: '<a src="https://t5.rbxcdn.com/180DAY-c239841c976f825fcf18284efdd1955a"></a>'
     },
     {
       id: 15,
       name: 'กรมสรรพาวุธทหารบก (สพ.ทบ.)',
-      short: 'กรมสรรพาวุธทหารบก',
+      short: 'หน้าที่หลักของกรมสรรพาวุธคือการบริหารจัดการด้านอาวุธยุทโธปกรณ์ทั้งหมดของกองทัพ',
       type: 'กรม',
       region: '-',  
       com:"-",
-      tel: '<a href="">ลิ้งค์กลุ่ม</a>' 
+      tel: '<a href="">ลิ้งค์กลุ่ม</a>' ,
+      pic: '<a src="https://t5.rbxcdn.com/180DAY-c239841c976f825fcf18284efdd1955a"></a>'
     },
 
 
@@ -180,22 +209,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let activeCat = 'all';
 
-function cardHTML(o){
+function cardHTML(o) {
   const colorMap = {
-    'กรม':'#0b67ff',
+    'กรม': '#2f643cff',
   };
+  const isImage = /https?:\/\/|<a\s+src=/.test(o.pic);
   const bg = colorMap[o.type] || '#64748b';
-  const initials = o.name.split(/\s+/).map(s=>s[0]||'').slice(0,2).join('');
+  const initials = o.name.split(/\s+/).map(s => s[0] || '').slice(0, 2).join('');
+
   return `
     <article class="card" data-type="${o.type}" data-region="${o.region}">
-      <div class="logo" style="background:${bg}">${initials}</div>
+      <div class="logo" style="background:${bg}">
+        ${
+          isImage
+            ? `<img src="${o.pic.replace(/<a\s+src="|"><\/a>/g, '')}" alt="${o.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`
+            : initials
+        }
+      </div>
       <div>
         <h4>${o.name}</h4>
       </div>
       <div class="meta">
-        <div>${o.tel || ''}</div>
         ${o.command ? `<div>${o.command}</div>` : ''}
-        <div style="margin: 2px;box-shadow: 10px "><a href="#" onclick="view(${o.id});return false">ดูรายละเอียด</a></div>
+        <div style="margin: 2px; box-shadow: 10px">
+          <a href="#" style="background-color: var(--accent-color);
+            color: var(--dark-text);
+            padding: 5px;
+            text-decoration: none;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform 0.2s;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 15px;"
+            onclick="view(${o.id}); return false">ดูรายละเอียด</a>
+        </div>
       </div>
     </article>
   `;
