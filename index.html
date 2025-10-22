@@ -1,94 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>Organization Directory — Template</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title  >ทำงานในรั้วทหารไทย | กองบัญชาการกองทัพไทย</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <div class="title"> 
-      <img class="logo" src="https://tr.rbxcdn.com/180DAY-c8c09818cd5e35009bba1b652f81667e/150/150/Image/Webp/noFilter" alt="logo">
-      <div>
-        <div class="logo-blob">Working in Royal Thai Army</div>
-        <div class="card1"> 
-          <h1>หน่วยงาน / องค์กร</h1>
-          <p class="lead">รายการหน่วยงานตัวอย่าง — ค้นหา เลือกดูรายละเอียด</p>
+    <header>
+        <div class="navbar">
+            <div class="logo"> <img src="https://tr.rbxcdn.com/180DAY-c8c09818cd5e35009bba1b652f81667e/150/150/Image/Webp/noFilter" 
+             alt="logo" 
+             style="width:100px; margin-right:10px; vertical-align: middle;">
+                <a href="#home">ทำงานในรั้วทหารไทย</a>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#announcement-tab">หน้าแรก</a></li>
+                    <li>
+                        <a href="#about-section">เกี่ยวกับเรา</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#about-section">ประวัติแมพ</a></li>
+                            <li><a href="#history">กฎหมาย</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#units-section">หน่วยงาน</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#units-section">เหล่าทัพ</a></li>
+                            <li><a href="#notice">กรม</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#creators">ผู้สร้าง</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+<!-- 🔔 แท็บข่าวสาร -->
+      <section id="announcement-tab" class="announcement-tab">
+         <div class="announcement-box-wide">
+        <h2 style="color: white;">ประกาศข่าวสาร</h2>
+        <div class="announcement-container" id="announcementContainer"></div>
+        <div class="announcement-controls">
+          <button id="prevBtn" class="btn">⬆ ก่อนหน้า</button>
+          <button id="nextBtn" class="btn btn-primary">ถัดไป ⬇</button>
+        </div></div>
+      </section>
+
+
+        <section id="about-section">
+            <h2>เกี่ยวกับเรา</h2>
+            
+            <div id="history">
+                <h3>ประวัติแมพ</h3>
+                <div style="min-height: 200px; border: 1px dashed var(--accent-color); padding: 20px; margin: 20px auto; max-width: 900px; text-align: center;">
+                    <p style="font-size: 1.2rem; margin-top: 50px;">
+|Group  1Pakung
+| Founder  3698x
+| Developer  KCI</p>
+                    <p>💂‍♂️ Welcome to Thai Military Fence 
+                      Created
+10/5/2025
+</p>
+                </div>
+            </div>
+
+            <div id="laws">
+                <h3>กฎหมาย</h3>
+                <div style="min-height: 150px; border: 1px dashed var(--accent-color); padding: 20px; margin: 20px auto; max-width: 900px; text-align: center;">
+                    <p><a href="https://docs.google.com/document/d/1RSAb694cQvnk0opIAjBBd3YUGoFHYI9aEwsU-_z0CAs" target="_blank" class="text-indigo-600 hover:underline text-sm"><strong>กฏหมายศาลรัฐธรรมนูญ</strong></a></p>
+                    <a href="https://docs.google.com/document/d/1biX_tFzDAX7PsLJwE_KVHRSKgMNwJFhOjGtqPCaArvw" target="_blank" class="text-indigo-600 hover:underline text-sm"><strong>กฏหมายอำนาจหน้าที่</strong></a></p>
+                    <a href="https://docs.google.com/document/d/1YTbDhevwW2plvSldzSFGKsmlvpj5Pcr1hZ9hK3UhYR8" target="_blank" class="text-indigo-600 hover:underline text-sm"><strong>กฏหมายพรบ.อาญาทหาร</strong></a>
+                </div>
+            </div>
+        </section>
+
+<section id="units-section">
+      <h2>เหล่าทัพ</h2>
+      <div class="unit-grid">
+        <div class="unit-card">
+          <h3>กองบัญชากองทัพไทย</h3>
+          <p>ข้อมูลกองบัญชาการกองทัพไทย</p>
+          <button class="btn btn-detail" onclick="toggleDetail('unit-army-1')">รายละเอียด</button>
+          <div id="unit-army-1" class="unit-detail-info">
+            <h5>Field marshel จอมทัพ: จอมพล armarx20011</h5>
+            <p><strong>Commander in Chief of the Thai Armed force ผู้บัญชาการทหารสูงสุด:</strong> พลตรี SWAnstav1 (รักษาการ)</p>
+            <a href="index1.html" class="btn">เว็บข้อมูลเหล่าทัพและลิ้งค์ต่างๆ</a>
+            <a href="https://discord.gg/PCMUAVYwjq" class="btn">Discord-กองทัพบก(ศูนยฺบัญชาการ)</a>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</header>
-<!-- แท็บข่าวสาร -->
-<section class="announcement-tab" style="margin:20px auto; max-width:500px;">
-  <h2>ประกาศข่าวสาร</h2>
-  <div class="announcement-container" id="announcementContainer">
-    <!-- ข่าวสารจะถูกเพิ่มด้วย JS -->
-  </div>
-  <div class="announcement-controls">
-    <button id="prevBtn">&#8593; ก่อนหน้า</button>
-    <button id="nextBtn">ถัดไป &#8595;</button>
-  </div>
-</section>
-<script>
-const announcements = [
-  "📢 ประกาศ ระบบเว็บทำงานในรั้วทหารไทย",
-  "กำลังจะ",
-  "พัฒนา",
-  "ต่อไป",
-  
-];
+    </section>
+        <section id="units-section">
+            <h2>หน่วยงาน</h2>
 
-
-let currentIndex = 0;
-const container = document.getElementById("announcementContainer");
-
-function showAnnouncement(index) {
-  container.style.opacity = 0;
-  setTimeout(()=>{
-    container.innerHTML = `<div class="announcement">${announcements[index]}</div>`;
-    container.style.opacity = 1;
-  }, 200);
-}
-
-// เริ่มต้น
-showAnnouncement(currentIndex);
-
-document.getElementById("prevBtn").addEventListener("click", ()=>{
-  currentIndex = (currentIndex - 1 + announcements.length) % announcements.length;
-  showAnnouncement(currentIndex);
-});
-
-document.getElementById("nextBtn").addEventListener("click", ()=>{
-  currentIndex = (currentIndex + 1) % announcements.length;
-  showAnnouncement(currentIndex);
-});
-
-// เลื่อนอัตโนมัติทุก 5 วินาที
-setInterval(()=>{
-  currentIndex = (currentIndex + 1) % announcements.length;
-  showAnnouncement(currentIndex);
-}, 5000);
-</script>
-
-<style>
-  .notice {
-    text-align: center;
-    margin: 0 auto;
-    padding: 10px;
-  }
-
-  @media (min-width: 768px) {
-    .notice {
-      max-width: 750px;
-    }
-  }
-</style>
-
-<div class="notice">
+            <div class="notice">
   <h3>*เว็บไซท์นี้เป็นของแมพทำงานในรั้วทหารไทย (จำลองเท่านั้น)*</h3>
 </div>
 
@@ -98,7 +111,7 @@ setInterval(()=>{
     <div class="search-row">
       <input id="q" type="text" placeholder="ค้นหา (ชื่อหน่วยงาน, คำสำคัญ)" oninput="render()">
       <select id="region" onchange="render()">
-        <option value="all">ทั้งหมด</option>
+       <option value="all"><stong><h3>ทั้งหมด</h3></stong></option>
       </select>
       <button onclick="resetFilters()">ล้าง</button>
     </div>
@@ -116,7 +129,7 @@ setInterval(()=>{
     </aside>
 
     <main class="main">
-      <div class="sidebar" >หน้าแรก / หน่วยงาน  <p>สามารถหา ลิ้งค์และข้อมูลทุกชนิดได้ที่นี้</p><a href="index1.html">แหล่งข้อมูล 2</a></div>
+      
       <section id="listWrap">
         <div class="grid" id="grid"></div>
         <div id="empty" class="empty" style="display:none">ไม่พบรายการที่ค้นหา</div>
@@ -135,62 +148,32 @@ setInterval(()=>{
   </div>
 </div>
 
-<script src="script.js"></script>
-     <style>
-  .cardd {
-    background: var(--card);
-    padding: 16px; /* เพิ่ม padding ให้สมดุลขึ้น */
-    border-radius: 10px;
-    box-shadow: -20px 6px 18px rgba(11, 61, 100, 0.06);
-    max-width: 750px;         /* กำหนดความกว้างสูงสุด */
-    margin: 0 auto;           /* จัดให้อยู่ตรงกลาง */
-  }
+        <section id="creators">
+            <h2>ผู้ก่อตั้งเว็บไซท์</h2>
+            <div class="unit-grid">
+                <div class="unit-card">
+                    <h3 ><a href="index2.html">SWAnstav1</a></h3>
+                    <p><strong>บทบาท:</strong> ร่างโครงสร้าง</p>
+                </div>
+                <div class="unit-card">
+                    <h3>Favchira</h3>
+                    <p><strong>บทบาท:</strong> ตกแต่งและพัฒนา</p>
+                </div>
+            </div>
+        </section>
 
-  .leadd {
-    color: var(--muted);
-    margin-bottom: 12px;
-    text-align: center;       /* จัดข้อความให้อยู่ตรงกลาง */
-  }
+    </main>
 
-  .leaddd {
-    margin-bottom: 12px;
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    .cardd {
-      padding: 12px;
-      box-shadow: -10px 4px 12px rgba(11, 61, 100, 0.05); /* เบาลงสำหรับจอเล็ก */
-    }
-  }
-</style>
-
-    <section id="units" style="margin-top:18px; width: 400px; height: 3000px;margin: auto;">
-        <div class="cardd">
-          <h3>เหล่าผู้พัฒนา | Developer</h3>
-          <p class="leadd">ผู้พัฒนา</p>
-          <table style="width: 70%;border-collapse:collapse;margin-top:12px;">
-            <thead style="text-align:left;color:var(--muted);font-size:13px">
-            <tbody>
-              <tr style="border-top:1px solid #f1f5f9">
-              <td style="width: 1px;">
-                <td><a class="leaddd"  href="https://www.roblox.com/users/1496814691/profile">1pakung</a><div><p>เจ้าของสถานที่</p>Place owner</div></td>
-                <td><a class="leaddd"  href="https://www.roblox.com/users/5273845728/profile">3698x</a><div><p>ผู้ก่อตั้ง</p>Founder</div></td>
-                <td><a class="stylesheet"  href="index2.html">Press-กด</a><div><p>เจ้าของเว็บ</p>Web Owner</div></td>
-              </td> 
-              </tr>
-              <tr style="border-top:1px solid #f1f5f9">
-              </tr>
-            </tbody>
-         
+    <footer>
+        <p>&copy; 2025 ทำงานในรั้วทหารไทย | กองบัญชาการกองทัพไทย</p>
+        <div style="margin-top: 20px;">
+            <p><strong>LINKS:</strong></p>
+            <a href="#" class="https://www.roblox.com/games/78176140112461/Working-in-Thai-Military-Fence" disabled>ลิงก์แมพ</a>
+            <a href="https://rblx.social/34933152" target="_blank" class="btn">ลิงก์กลุ่ม</a>
+            <a href="https://discord.gg/PCMUAVYwjq" target="_blank" class="btn btn-primary">ลิงก์ดิสคอร์ด</a>
         </div>
-      </section>
-    </body>
- 
-    </html>
-  </table> 
-          <footer class="lead">
-    © <span id="lead">2025</span> เว็บไซต์ข้อมูล | ทำงานในรั้วทหารไทย
-  </footer>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
