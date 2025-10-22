@@ -1,32 +1,64 @@
-  // ข้อมูลตัวอย่าง — เฉพาะกรมที่ขอ
+// ==========================
+// 🌐 เมนูนำทาง (Navigation)
+// ==========================
+
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+}
+
+function toggleDetail(unitId) {
+  const detail = document.getElementById(unitId);
+  if (detail) {
+    detail.classList.toggle('active');
+  }
+}
+
+// ฟังก์ชันสไลด์ข่าว (ตอนนี้ยังไม่ใช้)
+function initSlider() {
+  const sliderContainer = document.querySelector('.slider-container');
+  if (sliderContainer) {
+    // สามารถเพิ่มระบบสไลด์อัตโนมัติได้ที่นี่ภายหลัง
+  }
+}
+
+// เมื่อโหลด DOM เสร็จ
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.querySelector('.menu-toggle');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', toggleMenu);
+  }
+
+  // รองรับ dropdown menu ในเมนูหลัก
+  document.querySelectorAll('.nav-links > li > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const dropdown = link.nextElementSibling;
+      if (dropdown && dropdown.classList.contains('dropdown-menu')) {
+        // สามารถเพิ่ม toggle dropdown ได้หากต้องการ
+      }
+    });
+  });
+
+  // เรียกแสดงข้อมูล directory เมื่อเริ่มโหลด
+  render();
+  initSlider();
+});
+
+
+// ข้อมูลตัวอย่าง — เฉพาะกรมที่ขอ
   const orgs = [
     {
       id: 1,
-      name: 'กองบัญชาการกองทัพไทย (บก.ทท.)',
-      short: 'มีหน้าที่คุม 2 เหล่าทัพ 1.ทัพบก 2.ทัพเรือ ให้ปฏิบัติหน้าที่และตรวจสอบความถูกต้องและให้นโยบายการปฏิบัติงานเพื่อกระจายอำนาจและอำนวยการทุกกรมของเหล่าทัพ',
-      type: 'เหล่าทัพ',
-      region: 'https://discord.gg/wJDwTCpsc6',
-      command: 'ทสส.พล.อ.SWAnstav1 (รักษาการ)',
-      tel: '<a rel="stylesheet"href="index1.html">เว็บไซท์</a>' 
+      
     
     },
     {
       id: 2,
-      name: 'กฏหมายร่วมทุกแมพ',
-      division: 'สำนักงานคณะกรรมการวิสามัญ',
-      type: 'กฏหมาย',
-      region: 'https://discord.gg/WEWq9KBHrV',
-      law: '- <a href="https://docs.google.com/document/d/1YTbDhevwW2plvSldzSFGKsmlvpj5Pcr1hZ9hK3UhYR8">กฏหมายข้าราชการ(ทุกแมพ)</a>' 
-
+      
     },
     {
       id: 3,
-      name: 'กองทัพบก (ทบ.)',
-      short: 'การเตรียมกำลังทางบกเพื่อรักษาความสงบในราชอาณาจักร รวมถึงการพิทักษ์สถาบันพระมหากษัตริย์ การรักษาความมั่นคงภายในและการรักษาความสงบเรียบร้อย, การพัฒนาประเทศและช่วยเหลือประชาชน,การสนับสนุนนโยบายของรัฐบาล ',
-      type: 'เหล่าทัพ',
-      region: 'https://discord.gg/wJDwTCpsc6',
-      command: 'พล.อ.armarx20011 (รักษาการ)',
-      tel: '<a href="https://www.roblox.com/th/games/84295262296015/Working-in-the-Thai-military-fence">แมพทบ.</a>'  
+    
     },
     { 
       id: 4,
@@ -151,8 +183,6 @@
 function cardHTML(o){
   const colorMap = {
     'กรม':'#0b67ff',
-    'เหล่าทัพ':'#004403ff',
-    'กฏหมาย':'#10b981'
   };
   const bg = colorMap[o.type] || '#64748b';
   const initials = o.name.split(/\s+/).map(s=>s[0]||'').slice(0,2).join('');
@@ -165,7 +195,7 @@ function cardHTML(o){
       <div class="meta">
         <div>${o.tel || ''}</div>
         ${o.command ? `<div>${o.command}</div>` : ''}
-        <div style="margin-top:10px"><a href="#" onclick="view(${o.id});return false">ดูรายละเอียด</a></div>
+        <div style="margin: 2px;box-shadow: 10px "><a href="#" onclick="view(${o.id});return false">ดูรายละเอียด</a></div>
       </div>
     </article>
   `;
@@ -220,8 +250,7 @@ function cardHTML(o){
     catWrap.innerHTML = `
       <li><button class="active" data-cat="all" onclick="selectCat(event)">ทั้งหมด</button></li>
       <li><button data-cat="กรม" onclick="selectCat(event)">กรม</button></li>
-      <li><button data-cat="เหล่าทัพ" onclick="selectCat(event)">เหล่าทัพ</button></li>
-      <li><button data-cat="กฏหมาย" onclick="selectCat(event)">กฏหมาย</button></li>
+
     `;
   }
 
@@ -262,3 +291,71 @@ window.onclick = function(event){
   }
 }
 
+// =====================================
+// 🔔 ระบบประกาศข่าวสาร (รองรับรูปภาพ)
+// =====================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const announcements = [
+    {
+      text: "📢 ระบบเว็บไซต์ 'ทำงานในรั้วทหารไทย' พร้อมใช้งานแล้ว!",
+      img: "https://tr.rbxcdn.com/180DAY-37dc359fedb2c80d9a30502480aab0af/150/150/Image/Webp/noFilter"
+    },
+    {
+      text: "🔧 อยู่ระหว่างการปรับปรุงหน้า Directory หน่วยงานให้สวยงามขึ้น",
+      img: "https://cdn-icons-png.flaticon.com/512/809/809957.png"
+    },
+    {
+      text: "🛠️ ระบบใหม่สำหรับมือถือ — ใช้งานได้ดีขึ้น!",
+      img: "https://cdn-icons-png.flaticon.com/512/992/992700.png"
+    },
+    {
+      text: "🎖️ ขอบคุณทุกท่านที่สนับสนุนกองบัญชาการกองทัพไทย",
+      img: "https://cdn-icons-png.flaticon.com/512/4383/4383085.png"
+    }
+  ];
+
+  let currentIndex = 0;
+  const container = document.getElementById("announcementContainer");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  if (!container) return;
+
+  function showAnnouncement(index) {
+    const item = announcements[index];
+    container.style.opacity = 0;
+
+    setTimeout(() => {
+      container.innerHTML = `
+        <div class="announcement-item">
+          ${item.img ? `<img src="${item.img}" alt="announcement image" class="announcement-img">` : ""}
+          <p class="announcement-text">${item.text}</p>
+        </div>
+      `;
+      container.style.opacity = 1;
+    }, 200);
+  }
+
+  // เริ่มต้น
+  showAnnouncement(currentIndex);
+
+  // ปุ่มเลื่อน
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + announcements.length) % announcements.length;
+      showAnnouncement(currentIndex);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % announcements.length;
+      showAnnouncement(currentIndex);
+    });
+  }
+
+  // เลื่อนอัตโนมัติทุก 5 วินาที
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % announcements.length;
+    showAnnouncement(currentIndex);
+  }, 5000);
+});
