@@ -433,10 +433,19 @@ footer .btn-primary {
   align-items: center;
   gap: 12px;
   text-align: center;
-  animation: fadeIn 0.5s ease;
+  animation: fadeIn 1s ease;
   
   
 }
+
+
+.announcement-item:hover,
+.announcement-item.active {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #5A6840 100%);
+}
+
 .announcement-box-wide {
   background: var(--card);
   border-radius: 12px;
@@ -451,10 +460,18 @@ footer .btn-primary {
 }
 
 .announcement-img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  border-radius: 10px;
+
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  margin: 10px auto;
+  display: block;
+
+
+
 }
 
 .announcement-text {
@@ -469,8 +486,8 @@ footer .btn-primary {
     padding: 15px 0;
   }
   .announcement-img {
-    width: 80px;
-    height: 80px;
+      width: 400px;
+    height: auto;
   }
   .announcement-text {
     font-size: 1rem;
