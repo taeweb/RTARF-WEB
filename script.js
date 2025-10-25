@@ -354,15 +354,19 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       text: "🔧 อยู่ระหว่างการปรับปรุงหน้า Directory หน่วยงานให้สวยงามขึ้น",
-      img: "https://cdn-icons-png.flaticon.com/512/809/809957.png"
+      img: ""
     },
     {
       text: "🛠️ ระบบใหม่สำหรับมือถือ — ใช้งานได้ดีขึ้น!",
-      img: "https://cdn-icons-png.flaticon.com/512/992/992700.png"
+      img: ""
     },
     {
       text: "🎖️ ขอบคุณทุกท่านที่สนับสนุนกองบัญชาการกองทัพไทย",
-      img: "https://cdn-icons-png.flaticon.com/512/4383/4383085.png"
+      img: ""
+    },
+    {
+      text: "🤍 ประกาศสำนักพระราชวัง สมเด็จพระบรมราชชนนีพันปีหลวง สวรรคต ทีมคณะกรรมการบริหารและพัฒนา และ สมาชิกผู้เล่น ทำงานในรั้วตำรวจไทยน้อมส่งเสด็จสู่สวรรคาลัยถวายความอาลัยสมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวงทีมงานแมพ ทำงานในรั้วตำรวจไทยขอถวายความอาลัยอย่างสุดซึ้งด้วยความจงรักภักดี และ สำนักในพระมหากรุณาธิคุณเป็นล้นพ้นอันหาที่สุดมิได้ ข้าพเจ้าทีมงานคณะกรรมการบริหารและพัฒนาแมพทำงานในรั้วตำรวจไทย",
+      img: "https://img.pptvhd36.com/thumbor/2025/10/25/news-5df345a.jpg"
     }
   ];
 
@@ -370,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById("announcementContainer");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
+  let autoSlide; // เก็บ interval ไว้
 
   if (!container) return;
 
@@ -385,11 +390,39 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
       container.style.opacity = 1;
+
+      // ให้กล่องใหม่มี hover / click event
+      const currentItem = container.querySelector('.announcement-item');
+      addHoverEffect(currentItem);
     }, 200);
+  }
+
+  // ฟังก์ชันหยุด / เล่นอัตโนมัติ
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlide = setInterval(() => {
+      currentIndex = (currentIndex + 1) % announcements.length;
+      showAnnouncement(currentIndex);
+    }, 5000);
+  }
+
+  function stopAutoSlide() {
+    if (autoSlide) clearInterval(autoSlide);
+  }
+
+  // ฟังก์ชันเพิ่มเอฟเฟกต์ hover / click
+  function addHoverEffect(item) {
+    if (!item) return;
+    item.addEventListener('mouseenter', stopAutoSlide);
+    item.addEventListener('mouseleave', startAutoSlide);
+    item.addEventListener('click', () => {
+      item.classList.toggle('active'); // คลิกค้างได้
+    });
   }
 
   // เริ่มต้น
   showAnnouncement(currentIndex);
+  startAutoSlide();
 
   // ปุ่มเลื่อน
   if (prevBtn && nextBtn) {
@@ -403,10 +436,4 @@ document.addEventListener('DOMContentLoaded', () => {
       showAnnouncement(currentIndex);
     });
   }
-
-  // เลื่อนอัตโนมัติทุก 5 วินาที
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % announcements.length;
-    showAnnouncement(currentIndex);
-  }, 5000);
 });
